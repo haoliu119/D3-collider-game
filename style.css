@@ -1,3 +1,33 @@
 body{
-  
+  background-color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1,h2,h3,h4{
+	margin:0px;
+	font-weight: bold;
+	color: #333;
+}
+div{
+	display: block;
+}
+.container{
+	position: relative;
+	background: white;
+	width:700px;
+	margin: 40px auto;
+	padding:40px;
+}
+#scores{
+	position: absolute;
+	padding:10px;
+	top:40px;
+	right:40px;
+	width: 200px;
+	background: #ddd;
+	text-align: right;
+	border-radius: 3px;
+}
+#scores span{
+	display: inline-block;
+	width:50px;
 }
