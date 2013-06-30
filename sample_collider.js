@@ -30,7 +30,7 @@
     return d3.select('#best-score').text(gameStats.bestScore.toString());
   };
 
-  Player = (function() {
+  Player = (function() { //---------------
 
     Player.prototype.path = 'm-7.5,1.62413c0,-5.04095 4.08318,-9.12413 9.12414,-9.12413c5.04096,0 9.70345,5.53145 11.87586,9.12413c-2.02759,2.72372 -6.8349,9.12415 -11.87586,9.12415c-5.04096,0 -9.12414,-4.08318 -9.12414,-9.12415z';
 
@@ -126,7 +126,7 @@
 
     return Player;
 
-  })();
+  })(); //-----------------------
 
   players = [];
 
@@ -143,17 +143,20 @@
   };
 
   render = function(enemy_data) {
-    var checkCollision, enemies, onCollision, tweenWithCollisionDetection;
-    enemies = gameBoard.selectAll('circle.enemy').data(enemy_data, function(d) {
+
+    var enemies = gameBoard.selectAll('circle.enemy').data(enemy_data, function(d) {
       return d.id;
     });
-    enemies.enter().append('svg:circle').attr('class', 'enemy').attr('cx', function(enemy) {
-      return axes.x(enemy.x);
-    }).attr('cy', function(enemy) {
-      return axes.y(enemy.y);
-    }).attr('r', 0);
+
+    enemies.enter().append('svg:circle')
+      .attr('class', 'enemy')
+      .attr('cx', function(enemy) {
+        return axes.y(enemy.y);
+      }).attr('r', 0);
+
     enemies.exit().remove();
-    checkCollision = function(enemy, collidedCallback) {
+
+    var checkCollision = function(enemy, collidedCallback) {
       return _(players).each(function(player) {
         var radiusSum, separation, xDiff, yDiff;
         radiusSum = parseFloat(enemy.attr('r')) + player.r;
@@ -163,12 +166,12 @@
         if (separation < radiusSum) return collidedCallback(player, enemy);
       });
     };
-    onCollision = function() {
+    var onCollision = function() {
       updateBestScore();
       gameStats.score = 0;
       return updateScore();
     };
-    tweenWithCollisionDetection = function(endData) {
+    var tweenWithCollisionDetection = function(endData) {
       var endPos, enemy, startPos;
       enemy = d3.select(this);
       startPos = {
@@ -189,25 +192,26 @@
         return enemy.attr('cx', enemyNextPos.x).attr('cy', enemyNextPos.y);
       };
     };
+
     return enemies.transition().duration(500).attr('r', 10).transition().duration(2000).tween('custom', tweenWithCollisionDetection);
   };
 
-  play = function() {
-    var gameTurn, increaseScore;
-    gameTurn = function() {
-      var newEnemyPositions;
-      newEnemyPositions = createEnemies();
-      return render(newEnemyPositions);
-    };
-    increaseScore = function() {
+  (function() {
+
+    function gameTurn() {
+      return render(createEnemies());
+    }
+
+    function increaseScore() {
       gameStats.score += 1;
       return updateScore();
-    };
+    }
+
     gameTurn();
     setInterval(gameTurn, 2000);
-    return setInterval(increaseScore, 50);
-  };
 
-  play();
+    return setInterval(increaseScore, 50);
+
+  })();
 
 }).call(this);

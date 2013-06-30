@@ -3,31 +3,46 @@ body{
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1,h2,h3,h4{
-	margin:0px;
-	font-weight: bold;
-	color: #333;
+margin:0px;
+    font-weight: bold;
+    color: #333;
 }
 div{
-	display: block;
+    display: block;
 }
 .container{
-	position: relative;
-	background: white;
-	width:700px;
-	margin: 40px auto;
-	padding:40px;
+    position: relative;
+    background: white;
+    width:700px;
+    margin: 40px auto;
+    padding:40px;
 }
 #scores{
-	position: absolute;
-	padding:10px;
-	top:40px;
-	right:40px;
-	width: 200px;
-	background: #ddd;
-	text-align: right;
-	border-radius: 3px;
+    position: absolute;
+    padding:10px;
+    top:30px;
+    right:40px;
+    width: 200px;
+    background: #ddd;
+    text-align: right;
+    border-radius: 3px;
 }
 #scores span{
-	display: inline-block;
-	width:50px;
+    display: inline-block;
+    width:50px;
+}
+#gameBoard{
+  position: relative;
+  display:block;
+}
+.enemy{
+  fill: red;
+  stroke: black;
+}
+.player{
+  fill: #ff7400;
+  stroke: black;
+}
+.player.active{
+  fill: #ffd073;
 }
