@@ -142,7 +142,7 @@
     });
   };
 
-  render = function(enemy_data) {
+  render = function(enemy_data) { // start of render -----------
 
     var enemies = gameBoard.selectAll('circle.enemy').data(enemy_data, function(d) {
       return d.id;
@@ -194,7 +194,7 @@
     };
 
     return enemies.transition().duration(500).attr('r', 10).transition().duration(2000).tween('custom', tweenWithCollisionDetection);
-  };
+  }; // end of render -----------------
 
   (function() {
 
