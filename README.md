@@ -1,8 +1,5 @@
-#2013-06-watchout
+A Simple Collider Game using D3.js
 
-This is a copy of the work I did on a private repo, originally a project from
-the [Hack Reactor](http://hackreactor.com) curriculum. This project was worked
-on with a pair, and as such is representative of the kind of problems that I've
-tackled, but not of my solo work.
+This is a solo project I did as part of the curriculum at Hack Reactor. 
 
-For a better perspective on my own work, please see [PreLinked](https://github.com/haoliu119/PreLinked).
+Visit [this link](http://htmlpreview.github.io/?https://github.com/haoliu119/D3-collider-game/blob/master/index.html) to preview the game
