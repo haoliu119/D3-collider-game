@@ -4,7 +4,7 @@
     height: 450,
     width: 700,
     nPlayers: 1,
-    nEnemies: 30,
+    nEnemies: 10,
     padding: 20
   };
   var gameStats = {
