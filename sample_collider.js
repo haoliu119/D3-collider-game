@@ -5,7 +5,7 @@
   gameOptions = {
     height: 450,
     width: 700,
-    nEnemies: 30,
+    nEnemies: 10,
     padding: 20
   };
 
